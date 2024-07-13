@@ -1,0 +1,14 @@
+[Unit]
+Description=Lora868 Gateway
+After=network.target
+After=syslog.target
+
+[Service]
+User=loragw
+Group=users
+WorkingDirectory=/home/loragw/PiLoRa868
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:8000 code:api
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
