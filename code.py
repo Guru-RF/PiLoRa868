@@ -1,8 +1,6 @@
 import binascii
-
-# import sys
 import os
-import time
+import sys
 
 import board
 import busio
