@@ -38,15 +38,17 @@ api = Flask(__name__)
 
 @api.route("/<type>/<nr>", methods=["GET"])
 def setSwitch(type, nr):
-    print(type)
-    print(nr)
+    rf1.value = False
     retData = ["OK"]
+    rf2.value = True
     rfm9x.send(
         bytes("{}".format("<"), "UTF-8")
         + binascii.unhexlify("AA")
         + binascii.unhexlify("01")
         + bytes("{}".format(type + "/" + nr), "UTF-8")
     )
+    rf1.value = True
+    rf2.value = False
     return json.dumps(retData)
 
 
