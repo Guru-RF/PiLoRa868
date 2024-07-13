@@ -1,7 +1,6 @@
 import binascii
 import os
 import sys
-import time
 
 import board
 import busio
@@ -19,8 +18,6 @@ rf1.value = True
 rf2 = DigitalInOut(board.D19)
 rf2.direction = Direction.OUTPUT
 
-rf2.value = True
-time.sleep(3.25)
 rf2.value = False
 
 # Lora Stuff
